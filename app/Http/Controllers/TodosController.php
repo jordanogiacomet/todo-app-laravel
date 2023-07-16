@@ -12,12 +12,11 @@ class TodosController extends Controller
     public function completeTodo(Todo $todo){
         if(auth()->user()->id === $todo['user_id']){
            $todo->update(['completed' => '1']);
+        
+           session()->flash('message.level', 'success');
+           session()->flash('message.content', 'Todo completado com sucesso');
         }
-   
-   
-        return redirect('/home');
     }
-
 
 
     public function deleteTodo(Todo $todo){
@@ -47,7 +46,6 @@ class TodosController extends Controller
             $request->session()->flash('message.level', 'success');
             $request->session()->flash('message.content', 'Todo foi adicionado com sucesso');
         }
-
         return redirect('/home');
     }
 }

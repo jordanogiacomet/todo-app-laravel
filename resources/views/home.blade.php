@@ -50,7 +50,7 @@
                                         @method('DELETE')
                                         <button class="bg-red-600 rounded-2xl p-2 text-white">Remover</button>
                                     </form>
-                                    <form method="POST" action="/completar/{{$todo->id}}" class="m-0" onsubmit="return markAsCompleted(this)">
+                                    <form method="POST" action="/completar/{{$todo->id}}" class="m-0" onsubmit="return markAsCompleted(this, event)">
                                         @csrf
                                         @method('PUT')
                                         <button class="bg-gray-600 rounded-2xl p-2 text-white">Completar</button>
