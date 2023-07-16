@@ -1,33 +1,13 @@
-Todo List
-Este é um aplicativo de lista de tarefas simples, onde os usuários podem adicionar, remover e marcar tarefas como concluídas. O aplicativo foi desenvolvido utilizando o framework Laravel e o framework de estilização Tailwind CSS.
+O Todo List é um aplicativo web desenvolvido usando o framework Laravel e o framework de estilização Tailwind CSS. Ele permite que os usuários registrem uma conta, façam login e gerenciem suas tarefas diárias.
 
-Funcionalidades
-Registro de usuário
-Autenticação de usuário (login/logout)
-Adicionar uma nova tarefa
-Remover uma tarefa
-Marcar uma tarefa como concluída
-Visualizar a lista de tarefas com paginação
-Exibir mensagens de erro e sucesso
-Pré-requisitos
-PHP 7.4 ou superior
-Composer
-Banco de dados MySQL
-Instalação
-Faça o clone deste repositório para o diretório do seu servidor web.
-Navegue até o diretório raiz do projeto e execute o comando composer install para instalar as dependências do Laravel.
-Renomeie o arquivo .env.example para .env e configure as informações do banco de dados no arquivo .env.
-Execute o comando php artisan key:generate para gerar uma chave única para a aplicação.
-Execute o comando php artisan migrate para executar as migrações do banco de dados e criar as tabelas necessárias.
-Opcionalmente, execute o comando php artisan db:seed para popular o banco de dados com alguns dados de exemplo (usuários e tarefas).
-Inicie o servidor web para visualizar o aplicativo.
-Uso
-Acesse a página inicial do aplicativo para registrar uma nova conta ou fazer login com uma conta existente.
-Após o login, você será redirecionado para a página principal, onde poderá ver a lista de tarefas, adicionar novas tarefas, remover tarefas e marcar tarefas como concluídas.
-Ao adicionar ou remover uma tarefa, uma mensagem de sucesso será exibida.
-Se ocorrerem erros durante a execução de uma ação, mensagens de erro serão exibidas.
-Contribuição
-Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+Com o Todo List, os usuários podem adicionar novas tarefas, remover tarefas existentes e marcar tarefas como concluídas. A lista de tarefas é exibida em uma interface simples e intuitiva, onde os usuários podem ver o ID e a descrição de cada tarefa. Além disso, o aplicativo fornece recursos de paginação para facilitar a navegação entre as tarefas.
 
-Licença
-Este projeto está licenciado sob a licença MIT.
+Os usuários autenticados têm acesso completo às funcionalidades do aplicativo, enquanto os usuários não autenticados podem apenas visualizar a página de login e registrar uma nova conta.
+
+O aplicativo possui tratamento de erros integrado, exibindo mensagens de erro caso ocorra algum problema durante a execução de ações, como adicionar ou remover uma tarefa. Da mesma forma, mensagens de sucesso são exibidas quando uma tarefa é adicionada ou removida com sucesso.
+
+O Todo List é um projeto de código aberto, e você é encorajado a contribuir com melhorias e correções de bugs. O projeto é licenciado sob a licença MIT, o que significa que você pode usá-lo, modificá-lo e distribuí-lo livremente.
+
+Para começar a usar o Todo List, você precisa ter instalado PHP 7.4 ou superior e o Composer. Além disso, é necessário configurar um banco de dados MySQL para armazenar as informações das contas de usuário e das tarefas.
+
+Após a instalação e configuração, você pode executar o aplicativo em um servidor web e começar a gerenciar suas tarefas diárias de forma eficiente e organizada.
