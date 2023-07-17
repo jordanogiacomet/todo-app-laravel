@@ -6,7 +6,11 @@ export default {
     "./resources/**/*.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      zIndex:{
+        '-1' : '-1',
+      }
+    },
   },
   plugins: [],
 }

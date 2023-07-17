@@ -17,6 +17,10 @@ use App\Http\Controllers\TodosController;
 |
 */
 
+
+
+
+
 Route::get('/home', function () {
     
     $todos = [];
@@ -46,3 +50,4 @@ Route::post('/logout', [UserController::class, 'logout']);
 Route::post('/adicionar', [TodosController::class, 'createTodo']);
 Route::delete('/remover/{todo}', [TodosController::class, 'deleteTodo']);
 Route::put('/completar/{todo}', [TodosController::class, 'completeTodo']);
+Route::put('/editar/{todo}', [TodosController::class, 'editTodo']);

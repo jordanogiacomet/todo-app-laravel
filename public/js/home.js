@@ -20,7 +20,33 @@ window.addEventListener('DOMContentLoaded', function() {
     
 });
 
+// function editTodo(form, event){
+//     event.preventDefault();
 
+//     let url = form.action;
+//     let csrfToken = form.querySelector('input[name="_token"]').value;
+    
+
+//     fetch(url, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type' : 'application/json',
+//             'X-CSRF-TOKEN' : csrfToken
+//         },
+//         body: JSON.stringify({})
+//     })
+//     .then(response => {
+//         if(response.ok){
+//             console.log('Sucess');
+//         } else {
+//             console.log('Error');
+//         }
+//     })
+//     .catch(error => {
+//         console.error(error);
+//     })
+
+// }
 
 function createTodo(form, event){
     event.preventDefault();
@@ -51,6 +77,23 @@ function createTodo(form, event){
     .catch(error => {
         console.error('Erros', error);
     })
+}
+
+
+function showEditScreen(button) {  
+
+    console.log(button.id);
+    let elements = document.getElementsByClassName('modal');
+
+    console.log(elements)
+
+    for(let i = 0; i < elements.length; i++){
+        if(elements[i].id == button.id){
+            elements[i].classList.toggle('-z-1');
+            elements[i].classList.toggle('hidden');
+        }
+    }
+    
 }
 
 
@@ -87,8 +130,6 @@ function markAsCompleted(form, event) {
     button.disabled = true; // Desabilita o botão clicado
     button.classList.remove('bg-gray-600');
     button.classList.add('bg-green-600');
-    
-
     
 
 

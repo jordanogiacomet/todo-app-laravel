@@ -12,6 +12,25 @@ class TodosController extends Controller
         $this->middleware('auth');
     }
     
+
+    public function editTodo(Request $request, Todo $todo){
+        $incomingFields = $request->validate([
+            'text-edit' => 'required'
+        ]);
+
+        $incomingFields['text-edit'] = strip_tags($incomingFields['text-edit']);
+
+        if(auth()->user()->id === $todo['user_id']){
+            $todo->update(['text' => $incomingFields['text-edit']]);
+            session()->flash('message.level', 'success');
+            session()->flash('message.content', 'Todo atualizado com sucesso');
+        }
+    
+    
+        return redirect('/home');
+    }
+
+
     public function completeTodo(Todo $todo){
         if(auth()->user()->id === $todo['user_id']){
            $todo->update(['completed' => '1']);
