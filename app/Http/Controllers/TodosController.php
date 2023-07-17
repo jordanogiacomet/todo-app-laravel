@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class TodosController extends Controller
 {
 
-
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    
     public function completeTodo(Todo $todo){
         if(auth()->user()->id === $todo['user_id']){
            $todo->update(['completed' => '1']);
