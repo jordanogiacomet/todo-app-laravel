@@ -22,11 +22,11 @@
                         <td class="py-2 px-4 border-b text-center">{{$todo['text']}}</td>
                         <td class="py-2 px-4 border-b">
                             <div class="flex gap-2 justify-center">
-                                <form method="POST" action="/remover/{{$todo->id}}" class="m-0">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="bg-red-600 rounded-2xl p-2 text-white">Remover</button>
-                                </form>
+                               
+                                <div>
+                                    <button class="bg-red-600 rounded-2xl p-2 text-white" id="{{$todo->id}}" onclick="showDeleteScreen(this)">Remover</button>
+                                </div>
+                               
                                 <form method="POST" action="/completar/{{$todo->id}}" class="m-0" onsubmit="return markAsCompleted(this, event)">
                                     @csrf
                                     @method('PUT')
@@ -66,12 +66,20 @@
     @endif
 </div>
 @foreach ($todos as $todo)
-    <div class="bg-gray-200 w-6/12 absolute -z-1 modal top-1/3 right-1/4 hidden" id="{{$todo->id}}">
+    <div class="bg-gray-200 w-6/12 absolute -z-1 modal-edit top-1/3 right-1/4 hidden" id="{{$todo->id}}">
         <form action="/editar/{{$todo->id}}" method="POST" class="flex flex-col items-center p-5 gap-5 m-0">
             @csrf
             @method('PUT')
             <input type="text" class="h-16 placeholder:text-gray-300 text-center" placeholder="Escreva sua tarefa" name="text-edit">
             <button class="bg-blue-600 rounded-2xl p-2 text-white">Enviar</button>
+        </form>
+    </div>
+    <div class="bg-gray-200 w-6/12 absolute -z-1 modal-delete top-1/3 right-1/4 hidden" id="{{$todo->id}}">
+        <form action="/remover/{{$todo->id}}" method="POST" class="flex flex-col items-center p-5 gap-5 m-0">
+            @csrf
+            @method('DELETE')
+            <p class="text-justify">Você tem certeza que deseja remover essa tarefa?</p>
+            <button class="bg-red-600 rounded-2xl p-2 text-white">Excluir</button>
         </form>
     </div>
 @endforeach

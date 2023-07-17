@@ -83,9 +83,25 @@ function createTodo(form, event){
 function showEditScreen(button) {  
 
     console.log(button.id);
-    let elements = document.getElementsByClassName('modal');
+    let elements = document.getElementsByClassName('modal-edit');
 
     console.log(elements)
+
+    for(let i = 0; i < elements.length; i++){
+        if(elements[i].id == button.id){
+            elements[i].classList.toggle('-z-1');
+            elements[i].classList.toggle('hidden');
+        }
+    }
+    
+}
+
+function showDeleteScreen(button) {  
+
+    console.log(button.id);
+    let elements = document.getElementsByClassName('modal-delete');
+
+    console.log(elements);
 
     for(let i = 0; i < elements.length; i++){
         if(elements[i].id == button.id){
