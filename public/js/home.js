@@ -20,33 +20,35 @@ window.addEventListener('DOMContentLoaded', function() {
     
 });
 
-// function editTodo(form, event){
-//     event.preventDefault();
+function editTodo(form, event){
+    
+    event.preventDefault();
 
-//     let url = form.action;
-//     let csrfToken = form.querySelector('input[name="_token"]').value;
+    let url = form.action;
+    let csrfToken = form.querySelector('input[name="_token"]').value;
+    let textEdit = form.querySelector('input[name="text-edit"]').value;
     
 
-//     fetch(url, {
-//         method: 'PUT',
-//         headers: {
-//             'Content-Type' : 'application/json',
-//             'X-CSRF-TOKEN' : csrfToken
-//         },
-//         body: JSON.stringify({})
-//     })
-//     .then(response => {
-//         if(response.ok){
-//             console.log('Sucess');
-//         } else {
-//             console.log('Error');
-//         }
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     })
+    fetch(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrfToken
+        },
+        body: JSON.stringify({text:textEdit})
+    })
+    .then(response => {
+        if(response.ok){
+            console.log('Success');
+        } else {
+            console.log('Error');
+        }
+    })
+    .catch(error => {
+        console.error('Error', error);
+    })
 
-// }
+}
 
 function createTodo(form, event){
     event.preventDefault();
@@ -75,7 +77,7 @@ function createTodo(form, event){
         }
     })
     .catch(error => {
-        console.error('Erros', error);
+        console.error('Error', error);
     })
 }
 

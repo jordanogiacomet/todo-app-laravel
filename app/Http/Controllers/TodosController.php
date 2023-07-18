@@ -25,8 +25,6 @@ class TodosController extends Controller
             session()->flash('message.level', 'success');
             session()->flash('message.content', 'Todo atualizado com sucesso');
         }
-    
-    
         return redirect('/home');
     }
 
